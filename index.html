@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en" class="transition duration-500">
+<head id="header">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saptak Chaki | Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="favicon_portfolio.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e0e7ff',
+            darkPrimary: '#1e1e2f',
+            accent: '#7c3aed',
+            hoverNav: '#6366f1',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-reverse': 'float-reverse 5s ease-in-out infinite',
+            'spin-slow': 'spin 8s linear infinite',
+            'wave': 'wave 2.5s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'float-reverse': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(10px)' },
+            },
+            wave: {
+              '0%': { transform: 'rotate(0deg)' },
+              '10%': { transform: 'rotate(14deg)' },
+              '20%': { transform: 'rotate(-8deg)' },
+              '30%': { transform: 'rotate(14deg)' },
+              '40%': { transform: 'rotate(-4deg)' },
+              '50%': { transform: 'rotate(10deg)' },
+              '60%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(0deg)' },
+            }
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .nav-item:hover .dropdown-menu {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .project-card {
+      perspective: 1000px;
+    }
+    
+    .project-card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    
+    .project-card:hover .project-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .project-card-front, .project-card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .project-card-back {
+      transform: rotateY(180deg);
+    }
+    
+    .logo-carousel {
+      animation: scroll 20s linear infinite;
+    }
+    
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-250px * 7)); }
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, #7c3aed, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .glow {
+      box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+    }
+    
+    .glow:hover {
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.8);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 dark:bg-darkPrimary dark:text-white transition duration-500 font-sans overflow-x-hidden">
+
+<!-- 🌗 Light/Dark Toggle Button -->
+<!-- <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleMode()" class="px-4 py-2 rounded-full bg-accent text-white dark:bg-white dark:text-black font-semibold shadow-lg hover:scale-105 transition glow">
+    <i class="fas fa-moon dark:hidden"></i>
+    <i class="fas fa-sun hidden dark:inline"></i>
+  </button>
+</div> -->
+
+<!-- 🌟 Heading -->
+<header class="text-center mt-16 animate__animated animate__fadeIn">
+  <h1 id="Heading" class="text-4xl sm:text-5xl font-bold text-accent dark:text-indigo-300"></h1><br>
+  <div class="w-20 h-1 bg-accent mx-auto mt-4 rounded-full animate__animated animate__fadeInUp"></div>
+</header>
+<style>
+  .typed-cursor {
+  display: none !important;
+}
+
+</style>
+
+<!-- Typed.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  var typed = new Typed('#Heading', {
+    strings: ["Hi", "Welcome to my portfolio!"],
+    typeSpeed: 50,
+  });
+</script>
+
+<!-- 🔗 Navbar -->
+<!-- 🔗 Navbar -->
+<nav class="bg-primary dark:bg-gray-800 shadow-md sticky top-0 z-50 backdrop-blur-sm bg-opacity-80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+    <div class="flex justify-between items-center h-16">
+      <!-- Brand -->
+      <div class="flex-shrink-0 text-xl font-bold text-accent dark:text-indigo-300 animate__animated animate__fadeInLeft">
+        Saptak Chaki
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="sm:hidden flex items-center gap-4">
+        <button onclick="toggleMode()" class="p-2 rounded-full text-gray-700 dark:text-gray-300">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i>
+        </button>
+        <button id="mobile-toggle" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+          <svg class="h-6 w-6" id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="h-6 w-6 hidden" id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden sm:flex flex-wrap justify-center items-center space-x-4 font-medium text-sm sm:text-base text-black dark:text-white animate__animated animate__fadeInRight">
+        <!-- Home -->
+        <li class="relative nav-item group">
+          <a href="#" class="px-4 py-2 rounded hover:bg-hoverNav hover:text-white dark:hover:bg-indigo-500 transition">Home</a>
+          <div class="dropdown-menu hidden absolute top-full left-0 mt-1 bg-white dark:bg-gray-700 rounded shadow-md z-50">
+            <a href="#header" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Welcome</a>
+            <a href="#skills" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Highlights</a>
+            <a href="#projects" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Recent Updates</a>
+          </div>
+        </li>
+        <!-- About Me -->
+        <li class="relative nav-item group">
+          <a href="#" class="px-4 py-2 rounded hover:bg-hoverNav hover:text-white dark:hover:bg-indigo-500 transition">About Me</a>
+          <div class="dropdown-menu hidden absolute top-full left-0 mt-1 bg-white dark:bg-gray-700 rounded shadow-md z-50">
+            <a href="#about" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Who I am</a>
+            <a href="#education" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Education</a>
+            <a href="#skills" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Skills</a>
+            <a href="#certificates" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Certificates</a>
+          </div>
+        </li>
+        <!-- Projects -->
+        <li class="relative nav-item group">
+          <a href="#" class="px-4 py-2 rounded hover:bg-hoverNav hover:text-white dark:hover:bg-indigo-500 transition">Projects</a>
+          <div class="dropdown-menu hidden absolute top-full left-0 mt-1 bg-white dark:bg-gray-700 rounded shadow-md z-50">
+            <a href="#projects" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Web Development</a>
+            <a href="#projects" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Machine Learning</a>
+            <a href="#projects" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Python Projects</a>
+          </div>
+        </li>
+        <!-- Skills -->
+        <li class="relative nav-item group">
+          <a href="#skills" class="px-4 py-2 rounded hover:bg-hoverNav hover:text-white dark:hover:bg-indigo-500 transition">Skills</a>
+          <div class="dropdown-menu hidden absolute top-full left-0 mt-1 bg-white dark:bg-gray-700 rounded shadow-md z-50">
+            <a href="#skills" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Web Development</a>
+            <a href="#skills" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Programming Languages</a>
+            <a href="#skills" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Data Analytics</a>
+            <a href="#skills" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Machine Learning</a>
+            <a href="#skills" class="block px-4 py-2 hover:bg-hoverNav dark:hover:bg-indigo-500 hover:text-white">Data Structures and Algorithms</a>
+          </div>
+        </li>
+        <!-- Contact -->
+        <li>
+          <a href="#contact" class="px-4 py-2 rounded hover:bg-hoverNav hover:text-white dark:hover:bg-indigo-500 transition">Contact</a>
+        </li>
+        <!-- Dark/Light Mode Toggle -->
+        <li>
+          <button onclick="toggleMode()" class="px-4 py-2 rounded-full bg-accent text-white dark:bg-white dark:text-black font-semibold shadow-lg hover:scale-105 transition glow">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:inline"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 📱 Mobile Menu -->
+    <div id="mobile-menu" class="sm:hidden hidden mt-2 space-y-2 pb-4 animate__animated animate__fadeInDown">
+      <a href="#header" class="block px-3 py-2 rounded-md bg-gray-900 text-white">Home</a>
+      <a href="#about" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">About Me</a>
+      <a href="#projects" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+      <a href="#skills" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Skills</a>
+      <a href="#contact" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ✨ Typed Text Section -->
+<section class="mt-24 px-6 sm:px-24 text-2xl sm:text-4xl text-left leading-relaxed animate__animated animate__fadeIn">
+  <div id="line1" class="mb-4 font-semibold dark:text-gray-300 text-gray-800"></div>
+  <div>
+    I am an Aspiring...
+    <span id="typed-role" class="gradient-text font-bold"></span>
+    <span class="wave inline-block">👋</span>
+  </div>
+</section>
+
+<!-- 🚀 Floating Hero Image -->
+<section id="about" class="relative mt-16 px-6 sm:px-24 flex flex-col md:flex-row items-center justify-between gap-12">
+  <div class="md:w-1/2 animate__animated animate__fadeInLeft">
+    <h2 class="text-3xl font-bold mb-6">About <span class="gradient-text">Me</span></h2>
+    <p class="text-lg mb-6">Hello! I’m Saptak Chaki, a 3rd-year Computer Science and Engineering undergraduate with specialization of Artificial Intelligence and Machine Learning at Institute of Engineering and Management, Kolkata, Newtown Campus.
+I’m a passionate Data Analyst and Front-end Web Developer, currently progressing into the exciting fields of Data Science , Machine Learning and Web Development. 
+I’ve built a strong foundation in data structures and algorithms and am proficient in Python, MySQL, MATLAB, C, Java, and JavaScript.
+ I enjoy translating complex datasets into actionable insights and creating responsive web interfaces.</p>
+    <div class="flex gap-4">
+      <a href="#contact" class="px-6 py-3 bg-accent text-white rounded-lg font-medium hover:bg-indigo-700 transition glow">Contact Me</a>
+      <a href="https://drive.google.com/file/d/1fRl5-T1VHJkvFNwsA8yNk6HAffkEkPxt/view?usp=sharing" target="_blank" class="px-6 py-3 border border-accent text-accent dark:text-white rounded-lg font-medium hover:bg-accent hover:text-white transition">Download CV</a>
+    </div>
+  </div>
+  <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight">
+    <div class="relative">
+      <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-accent shadow-xl">
+        <img src="pfp_portfolio.png" alt="Saptak" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg animate-float">
+        <div class="text-2xl font-bold text-accent">2+</div>
+        <div class="text-sm">Years Experience of Coding</div>
+      </div>
+      <div class="absolute -top-6 -left-6 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg animate-float-reverse">
+        <i class="fas fa-code text-accent text-2xl"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🛠️ Skills Section -->
+<section id="skills" class="mt-32 px-6 sm:px-24">
+  <h2 class="text-3xl font-bold text-center mb-12 animate__animated animate__fadeIn">My <span class="gradient-text">Skills</span></h2>
+  
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <!-- Skill Card 1 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="devicon-html5-plain colored"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">HTML5</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 90%"></div>
+      </div>
+    </div>
+    
+    <!-- Skill Card 2 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="devicon-css3-plain colored"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">CSS3</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 80%"></div>
+      </div>
+    </div>
+    
+    <!-- Skill Card 3 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="devicon-javascript-plain colored"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">JavaScript</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 70%"></div>
+      </div>
+    </div>
+    
+    <!-- Skill Card 4 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="devicon-python-plain colored"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">Python</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 90%"></div>
+      </div>
+    </div>
+    
+    <!-- Skill Card 5 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="fas fa-database"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">SQL</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 80%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mt-32 px-6 sm:px-24">
+  <!-- <h2 class="text-3xl font-bold text-center mb-12 animate__animated animate__fadeIn">My <span class="gradient-text">Skills</span></h2> -->
+  
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <!-- Skill Card 6 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="devicon-java-plain colored"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">Java</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 75%"></div>
+      </div>
+    </div>
+    
+    <!-- Skill Card 7 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="devicon-c-plain colored"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">C</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 80%"></div>
+      </div>
+    </div>
+    
+    <!-- Skill Card 8 -->
+    <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="devicon-matlab-plain"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">MATLAB</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 80%"></div>
+      </div>
+    </div>
+    
+    <!-- Skill Card 9 -->
+    <!-- <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="fab fa-python"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">Python</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 90%"></div>
+      </div>
+    </div> -->
+    
+    <!-- Skill Card 10 -->
+    <!-- <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl">
+      <div class="text-4xl text-center mb-4 text-accent animate-spin-slow">
+        <i class="fas fa-database"></i>
+      </div>
+      <h3 class="text-xl font-semibold text-center">SQL</h3>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+        <div class="bg-accent h-2.5 rounded-full" style="width: 80%"></div>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<!-- 🌐 Tech Stack Carousel -->
+<section id="skills" class="mt-32 bg-gray-100 dark:bg-gray-700 py-12 overflow-hidden">
+  <h2 class="text-3xl font-bold text-center mb-12 animate__animated animate__fadeIn">Tech <span class="gradient-text">Stack</span></h2>
+  
+  <div class="relative">
+    <div class="logo-carousel flex items-center gap-12 animate-scroll whitespace-nowrap">
+      <!-- Original Logos -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-react text-5xl text-blue-500"></i>
+        <span class="ml-3 text-xl font-semibold">React</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fa-brands fa-js text-5xl text-yellow-500"></i>
+        <span class="ml-3 text-xl font-semibold">Javascript</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-node-js text-5xl text-green-500"></i>
+        <span class="ml-3 text-xl font-semibold">Node.js</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-python text-5xl text-yellow-500"></i>
+        <span class="ml-3 text-xl font-semibold">Python</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-matlab-plain text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">MATLAB</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-java text-5xl text-orange-500"></i>
+        <span class="ml-3 text-xl font-semibold">Java</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-docker text-5xl text-blue-300"></i>
+        <span class="ml-3 text-xl font-semibold">Docker</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-git-alt text-5xl text-red-500"></i>
+        <span class="ml-3 text-xl font-semibold">Git</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-github text-5xl text-gray-500"></i>
+        <span class="ml-3 text-xl font-semibold">GitHub</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-mysql-original colored text-5xl text-blue-500"></i>
+        <span class="ml-3 text-xl font-semibold">MySQL</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-django-plain text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Django</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-c-plain colored text-5xl text-blue-700"></i>
+        <span class="ml-3 text-xl font-semibold">C</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-mongodb-plain text-5xl text-green-500"></i>
+        <span class="ml-3 text-xl font-semibold">MongoDB</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-css3-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">CSS3</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-html5-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">HTML5</span>
+      </div>           
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-fastapi-plain text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">FastAPI</span>
+      </div>
+
+      <!-- Duplicate for seamless looping -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-react text-5xl text-blue-500"></i>
+        <span class="ml-3 text-xl font-semibold">React</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fa-brands fa-js text-5xl text-yellow-500"></i>
+        <span class="ml-3 text-xl font-semibold">Javascript</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-node-js text-5xl text-green-500"></i>
+        <span class="ml-3 text-xl font-semibold">Node.js</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-python text-5xl text-yellow-500"></i>
+        <span class="ml-3 text-xl font-semibold">Python</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-matlab-plain text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">MATLAB</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-java text-5xl text-orange-500"></i>
+        <span class="ml-3 text-xl font-semibold">Java</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-docker text-5xl text-blue-300"></i>
+        <span class="ml-3 text-xl font-semibold">Docker</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-git-alt text-5xl text-red-500"></i>
+        <span class="ml-3 text-xl font-semibold">Git</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fab fa-github text-5xl text-gray-500"></i>
+        <span class="ml-3 text-xl font-semibold">GitHub</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-mysql-original colored text-5xl text-blue-500"></i>
+        <span class="ml-3 text-xl font-semibold">MySQL</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-django-plain text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Django</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-c-plain colored text-5xl text-blue-700"></i>
+        <span class="ml-3 text-xl font-semibold">C</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-mongodb-plain text-5xl text-green-500"></i>
+        <span class="ml-3 text-xl font-semibold">MongoDB</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-css3-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">CSS3</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-html5-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">HTML5</span>
+      </div>           
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-fastapi-plain text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">FastAPI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .logo-carousel {
+    animation: scroll 30s linear infinite;
+    width: calc(250px * 32); /* Adjust based on total items */
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 16)); /* Half of total width */
+    }
+  }
+</style>
+
+
+<section id="skills" class="mt-20 bg-gray-100 dark:bg-gray-700 py-12 overflow-hidden">
+  <h2 class="text-3xl font-bold text-center mb-12 animate__animated animate__fadeIn">Frameworks & <span class="gradient-text">Libraries</span></h2>
+  
+  <div class="relative">
+    <div class="libs-carousel flex items-center gap-12 animate-scroll-reverse whitespace-nowrap">
+      <!-- Original Items -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-numpy-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">NumPy</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-pandas-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Pandas</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-matplotlib-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Matplotlib</span>
+      </div>
+<div class="flex items-center justify-center shrink-0 w-48 h-24">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#5A8FBB" viewBox="0 0 24 24" height="48" width="48" class="text-5xl">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-9c-.83 0-1.5-.67-1.5-1.5S5.67 8.5 6.5 8.5 8 9.17 8 10s-.67 1.5-1.5 1.5zm5.5 0c-.83 0-1.5-.67-1.5-1.5S11.17 8.5 12 8.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5.5 0c-.83 0-1.5-.67-1.5-1.5S16.67 8.5 17.5 8.5 19 9.17 19 10s-.67 1.5-1.5 1.5z"/>
+  </svg>
+  <span class="ml-3 text-xl font-semibold">Seaborn</span>
+</div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-scikitlearn-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Scikit-learn</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-opencv-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">OpenCV</span>
+      </div>
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-tensorflow-original colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">TensorFlow</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-pytorch-original colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">PyTorch</span>
+      </div> -->
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-flask-original text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Flask</span>
+      </div> -->
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-express-original text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Express</span>
+      </div> -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-bootstrap-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Bootstrap</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-tailwindcss-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Tailwind</span>
+      </div>
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-spring-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Spring</span>
+      </div> -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fas fa-robot text-5xl text-purple-500"></i>
+        <span class="ml-3 text-xl font-semibold">YOLO</span>
+      </div>
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-qt-original text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Qt</span>
+      </div> -->
+
+      <!-- Duplicates for seamless looping -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-numpy-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">NumPy</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-pandas-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Pandas</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-matplotlib-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Matplotlib</span>
+      </div>
+<div class="flex items-center justify-center shrink-0 w-48 h-24">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#5A8FBB" viewBox="0 0 24 24" height="48" width="48" class="text-5xl">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-9c-.83 0-1.5-.67-1.5-1.5S5.67 8.5 6.5 8.5 8 9.17 8 10s-.67 1.5-1.5 1.5zm5.5 0c-.83 0-1.5-.67-1.5-1.5S11.17 8.5 12 8.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5.5 0c-.83 0-1.5-.67-1.5-1.5S16.67 8.5 17.5 8.5 19 9.17 19 10s-.67 1.5-1.5 1.5z"/>
+  </svg>
+  <span class="ml-3 text-xl font-semibold">Seaborn</span>
+</div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-scikitlearn-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Scikit-learn</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-opencv-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">OpenCV</span>
+      </div>
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-tensorflow-original colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">TensorFlow</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-pytorch-original colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">PyTorch</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-flask-original text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Flask</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-express-original text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Express</span>
+      </div> -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-bootstrap-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Bootstrap</span>
+      </div>
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-tailwindcss-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Tailwind</span>
+      </div>
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-spring-plain colored text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Spring</span>
+      </div> -->
+      <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="fas fa-robot text-5xl text-purple-500"></i>
+        <span class="ml-3 text-xl font-semibold">YOLO</span>
+      </div>
+      <!-- <div class="flex items-center justify-center shrink-0 w-48 h-24">
+        <i class="devicon-qt-original text-5xl"></i>
+        <span class="ml-3 text-xl font-semibold">Qt</span>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .libs-carousel {
+    animation: scroll-reverse 30s linear infinite;
+    width: calc(250px * 30); /* Adjust based on total items */
+  }
+  
+  @keyframes scroll-reverse {
+    0% {
+      transform: translateX(calc(-250px * 15)); /* Start from left */
+    }
+    100% {
+      transform: translateX(0); /* Move to right */
+    }
+  }
+</style>
+
+<!-- 🏆 Projects Section -->
+<section id="projects" class="mt-32 px-6 sm:px-24">
+  <h2 class="text-3xl font-bold text-center mb-12 animate__animated animate__fadeIn">Featured <span class="gradient-text">Projects</span></h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Project 1 -->
+    <div class="project-card h-64">
+      <div class="project-card-inner relative w-full h-full rounded-xl shadow-lg">
+        <div class="project-card-front bg-white dark:bg-gray-800 rounded-xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="text-3xl text-accent mb-4">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">E-commerce Website</h3>
+            <p class="text-gray-600 dark:text-gray-300">Frontend based e-commerce platform with HTML, CSS , JS and attractive UI and features like "add to cart" and "total purchase amount" displayed </p>
+          </div>
+          <div class="text-sm text-accent font-medium">View Details →</div>
+        </div>
+        <div class="project-card-back bg-accent text-white rounded-xl p-6 flex flex-col justify-center items-center">
+          <h3 class="text-xl font-bold mb-4">E-commerce Website</h3>
+          <p class="text-center mb-4">This website can be used to purchase electronic items along with enhanced user experience</p>
+          <a href="https://soham1411.github.io/Order-Inn/" target="_blank" class="px-4 py-2 bg-white text-accent rounded-lg font-medium">View Project</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 2 -->
+    <div class="project-card h-64">
+      <div class="project-card-inner relative w-full h-full rounded-xl shadow-lg">
+        <div class="project-card-front bg-white dark:bg-gray-800 rounded-xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="text-3xl text-accent mb-4">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Face Recognition</h3>
+            <p class="text-gray-600 dark:text-gray-300">Built a contactless IOT Doorbell along with features like faces detection and face recognition feature using opencv</p>
+          </div>
+          <div class="text-sm text-accent font-medium">View Details →</div>
+        </div>
+        <div class="project-card-back bg-accent text-white rounded-xl p-6 flex flex-col justify-center items-center">
+          <h3 class="text-xl font-bold mb-4">Face Recognition</h3>
+          <p class="text-center mb-4">Used Raspberry Pi3 to implement the contactless IOT smart doorbell using OpenCV's face detectionn and face recognition</p>
+          <a href="https://github.com/Saptakcodes/Face-Recognition" target="_blank" class="px-4 py-2 bg-white text-accent rounded-lg font-medium">View Project</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 3 -->
+    <div class="project-card h-64">
+      <div class="project-card-inner relative w-full h-full rounded-xl shadow-lg">
+        <div class="project-card-front bg-white dark:bg-gray-800 rounded-xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="text-3xl text-accent mb-4">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Visualify</h3>
+            <p class="text-gray-600 dark:text-gray-300">Enhanced visualization website which includes premium features like data analytics and insights displayed using a responsive fascinating UI for the user</p>
+          </div>
+          <div class="text-sm text-accent font-medium">View Details →</div>
+        </div>
+        <div class="project-card-back bg-accent text-white rounded-xl p-6 flex flex-col justify-center items-center">
+          <h3 class="text-xl font-bold mb-4">Visualify</h3>
+          <p class="text-center mb-4">This website is a company's work displays of their advanced Data Visualization plans and how they can help and ensure customer about their services.</p>
+          <a href="https://visualify-home.vercel.app/" target="_blank" class="px-4 py-2 bg-white text-accent rounded-lg font-medium">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    
+  
+  <div class="text-center mt-12">
+    <a href="https://github.com/Saptakcodes" target="_blank" class="px-6 py-3 border border-accent text-accent dark:text-white rounded-lg font-medium hover:bg-accent hover:text-white transition">View All Projects</a>
+  </div>
+</section>
+
+
+
+<!-- 🏢 Experience & Education -->
+<section id="education experience" class="mt-32 px-6 sm:px-24">
+  <h2 class="text-3xl font-bold text-center mb-12 animate__animated animate__fadeIn">My <span class="gradient-text">Journey</span></h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- Experience -->
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+      <h3 class="text-2xl font-bold mb-6 flex items-center">
+        <i class="fas fa-briefcase text-accent mr-3"></i> Experience
+      </h3>
+      
+      <div class="relative">
+        <!-- Timeline item 1 -->
+        <div class="mb-8 pl-8 relative before:absolute before:left-4 before:top-0 before:h-full before:w-1 before:bg-accent before:rounded-full">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+            <h4 class="font-bold">AIML intern</h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Edunet Foundation - AI Azure</p>
+            <p class="mt-2">Developed face detection and recognition using OpenCV along with got trained in AI, Azure Services and Machine Learning.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline item 2 -->
+        <div class="mb-8 pl-8 relative before:absolute before:left-4 before:top-0 before:h-full before:w-1 before:bg-accent before:rounded-full">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+            <h4 class="font-bold">AIML intern</h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Edunet Foundation - IBM Skillsfield</p>
+            <p class="mt-2">Currently developing employee salary prediction Machine Learning Model along with responsive UI website.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Education -->
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+      <h3 class="text-2xl font-bold mb-6 flex items-center">
+        <i class="fas fa-graduation-cap text-accent mr-3"></i> Education
+      </h3>
+      
+      <div class="relative">
+        <!-- Timeline item 1 -->
+        <div class="mb-8 pl-8 relative before:absolute before:left-4 before:top-0 before:h-full before:w-1 before:bg-accent before:rounded-full">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+            <h4 class="font-bold">B.Tech in Computer Science Engineering ( Artificial Intelligence and Machine Learning ) and Cyber Security (minor) </h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Institute of Engineering and Management - Newtown Campus under University of Engineering and Management , Kolkata · 2023 - 2027</p>
+            <p class="mt-2">Grade - 9.18 cgpa.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline item 2 -->
+        <div class="mb-8 pl-8 relative before:absolute before:left-4 before:top-0 before:h-full before:w-1 before:bg-accent before:rounded-full">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white">
+            <i class="fas fa-school"></i>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+            <h4 class="font-bold">Higher Secondary -  CBSE</h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Birla High School · 2021 - 2023</p>
+            <p class="mt-2">Grade - 84.4%.</p>
+          </div>
+        </div>
+
+                <!-- Timeline item 3 -->
+        <div class="mb-8 pl-8 relative before:absolute before:left-4 before:top-0 before:h-full before:w-1 before:bg-accent before:rounded-full">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+            <h4 class="font-bold">Secondary - CBSE</h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Birla High School · 2011 - 2021</p>
+            <p class="mt-2">Grade - 87.8%.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--Certifications-->
+<!-- Certifications Section -->
+<section id="certifications" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-4">My <span class="text-blue-600 dark:text-blue-400">Certifications</span></h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
+      Validated skills and knowledge through industry-recognized certifications
+    </p>
+
+    <div class="certifications-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- NPTEL Certification -->
+      <div class="certification-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" alt="NPTEL Certification" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-4 left-4">
+            <span class="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded">Data Science / C</span>
+            <h3 class="text-white text-xl font-bold mt-2">NPTEL Certification</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-gray-500 dark:text-gray-300 text-sm">NPTEL</span>
+            <span class="text-yellow-500 text-sm font-medium">2024-25</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Completed courses and exams on Data Science, C Programming, and Soft Skills.</p>
+          <button class="view-cert-btn w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300 flex items-center justify-center gap-2" data-cert="nptel">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+            </svg>
+            View Credential
+          </button>
+        </div>
+      </div>
+
+      <!-- Google Data Analytics -->
+      <div class="certification-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Google Data Analytics" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-4 left-4">
+            <span class="bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded">Data Analytics</span>
+            <h3 class="text-white text-xl font-bold mt-2">Google Data Analytics</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-gray-500 dark:text-gray-300 text-sm">Google</span>
+            <span class="text-yellow-500 text-sm font-medium">2025</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Mastered data cleaning, analysis, visualization and R programming for data analytics.</p>
+          <button class="view-cert-btn w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300 flex items-center justify-center gap-2" data-cert="google">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+            </svg>
+            View Credential
+          </button>
+        </div>
+      </div>
+
+      <!-- Cyber Security -->
+      <div class="certification-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5" alt="Cyber Security" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-4 left-4">
+            <span class="bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded">Cyber Security</span>
+            <h3 class="text-white text-xl font-bold mt-2">Advanced Systems Security</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-gray-500 dark:text-gray-300 text-sm">Chinese University of Hong Kong / University of Colorado</span>
+            <span class="text-yellow-500 text-sm font-medium">2024-25</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Certified in Information Theory and Advanced Systems Security topics.</p>
+          <button class="view-cert-btn w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300 flex items-center justify-center gap-2" data-cert="cyber">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+            </svg>
+            View Credential
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for certificate viewing -->
+  <div id="certModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl transform transition-all duration-300 scale-95">
+      <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+        <h3 class="text-xl font-bold dark:text-white" id="modalTitle">Certificate Title</h3>
+        <button id="closeModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto max-h-[70vh]">
+        <!-- PDF Viewer Container -->
+        <div id="pdfViewer" class="hidden w-full h-[60vh]">
+          <iframe id="pdfFrame" class="w-full h-full border dark:border-gray-700" frameborder="0"></iframe>
+        </div>
+        <!-- Image Viewer Container -->
+        <div id="imageViewer">
+          <img id="modalImage" src="" alt="Certificate" class="w-full rounded-lg border dark:border-gray-700">
+        </div>
+        <div class="mt-4 text-gray-600 dark:text-gray-300" id="modalDescription">
+          Certificate description will appear here
+        </div>
+      </div>
+      <div class="p-4 border-t dark:border-gray-700 flex justify-between items-center">
+        <span id="certIssuer" class="text-sm text-gray-500 dark:text-gray-400"></span>
+        <a id="verifyLink" href="#" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300">
+          Verify Certificate
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Certification data
+  const certifications = {
+    nptel: {
+      title: "NPTEL Certification",
+      issuer: "NPTEL",
+      year: "2024-25",
+      description: "Completed courses and exams on Data Science, C Programming, and Soft Skills.",
+      file: "certificates/NPTEL_CERTIFICATES.pdf",
+      verifyUrl: "https://drive.google.com/file/d/11-NnHzrVTnWwsyYkYn7xRF7r2FsNtYXR/view?usp=sharing",
+      type: "pdf"
+    },
+    google: {
+      title: "Google Data Analytics",
+      issuer: "Google",
+      year: "2025",
+      description: "Mastered data cleaning, analysis, visualization and R programming for data analytics.",
+      file: "certificates/DA_google.pdf",
+      verifyUrl: "https://drive.google.com/file/d/1dGPeUfVfDgvcq_uMozRzMgLXxn2NInqi/view?usp=sharing",
+      type: "pdf"
+    },
+    cyber: {
+      title: "Advanced Systems Security",
+      issuer: "Chinese University of Hong Kong / University of Colorado",
+      year: "2024-25",
+      description: "Certified in Information Theory and Advanced Systems Security topics.",
+      file: "certificates/CyberSecurity_certificates.pdf",
+      verifyUrl: "https://drive.google.com/file/d/18bTsn2OceG8As8ftnzz1zYNsg-corU7s/view?usp=sharing",
+      type: "pdf"
+    }
+  };
+
+  // Modal elements
+  const modal = document.getElementById('certModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const pdfViewer = document.getElementById('pdfViewer');
+  const pdfFrame = document.getElementById('pdfFrame');
+  const imageViewer = document.getElementById('imageViewer');
+  const modalImage = document.getElementById('modalImage');
+  const modalDescription = document.getElementById('modalDescription');
+  const verifyLink = document.getElementById('verifyLink');
+  const certIssuer = document.getElementById('certIssuer');
+  const closeModal = document.getElementById('closeModal');
+  const viewButtons = document.querySelectorAll('.view-cert-btn');
+
+  // Handle view button clicks
+  viewButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const certId = button.getAttribute('data-cert');
+      const cert = certifications[certId];
+      
+      modalTitle.textContent = cert.title;
+      modalDescription.textContent = cert.description;
+      verifyLink.href = cert.verifyUrl;
+      certIssuer.textContent = `Issued by: ${cert.issuer} • ${cert.year}`;
+      
+      // Show PDF or image based on type
+      if (cert.type === "pdf") {
+        pdfViewer.classList.remove('hidden');
+        imageViewer.classList.add('hidden');
+        pdfFrame.src = cert.file;
+      } else {
+        pdfViewer.classList.add('hidden');
+        imageViewer.classList.remove('hidden');
+        modalImage.src = cert.file;
+        modalImage.alt = cert.title;
+      }
+      
+      // Show modal
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+      document.querySelector('#certModal > div').classList.remove('scale-95');
+      document.querySelector('#certModal > div').classList.add('scale-100');
+    });
+  });
+
+  // Close modal
+  closeModal.addEventListener('click', () => {
+    closeModalFunc();
+  });
+
+  // Close modal when clicking outside
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModalFunc();
+    }
+  });
+
+  function closeModalFunc() {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100', 'pointer-events-auto');
+    document.querySelector('#certModal > div').classList.add('scale-95');
+    document.querySelector('#certModal > div').classList.remove('scale-100');
+    // Clear PDF viewer when closing
+    setTimeout(() => {
+      pdfFrame.src = '';
+    }, 300);
+  }
+
+  // Animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fadeInUp');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.certification-card').forEach(card => {
+    observer.observe(card);
+  });
+});
+
+// // Simplified click handler for all PDFs
+// viewButtons.forEach(button => {
+//   button.addEventListener('click', () => {
+//     const certId = button.getAttribute('data-cert');
+//     const cert = certifications[certId];
+    
+//     if (cert.type === "pdf") {
+//       window.open(cert.file, '_blank');
+//     } else {
+//       // Handle images normally
+//       modalTitle.textContent = cert.title;
+//       modalImage.src = cert.file;
+//       modalImage.alt = cert.title;
+//       modalDescription.textContent = cert.description;
+//       verifyLink.href = cert.verifyUrl;
+      
+//       // Show modal
+//       modal.classList.remove('opacity-0', 'pointer-events-none');
+//       modal.classList.add('opacity-100', 'pointer-events-auto');
+//     }
+//   });
+// });
+</script>
+
+<style>
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Delay animations for each card */
+.certification-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.certification-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.certification-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* PDF Viewer styling */
+#pdfViewer {
+  min-height: 60vh;
+}
+</style>
+
+
+
+<!-- 📞 Contact Section -->
+<section id="contact" class="mt-32 px-6 sm:px-24">
+  <h2 class="text-3xl font-bold text-center mb-12 animate__animated animate__fadeIn">Get In <span class="gradient-text">Touch</span></h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- Contact Info -->
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg animate__animated animate__fadeInLeft">
+      <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+      
+      <div class="space-y-6">
+        <div class="flex items-start">
+          <div class="text-accent text-xl mr-4 mt-1">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold">Email</h4>
+            <p class="text-gray-600 dark:text-gray-300">i.am.saptakchaki@gmail.com</p>
+            <p class="text-gray-600 dark:text-gray-300">saptakchaki05@gmail.com</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="text-accent text-xl mr-4 mt-1">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold">Phone</h4>
+            <p class="text-gray-600 dark:text-gray-300">(+91) 9163580205</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="text-accent text-xl mr-4 mt-1">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold">Location</h4>
+            <p class="text-gray-600 dark:text-gray-300">Kolkata, West Bengal, India</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8">
+        <h4 class="font-semibold mb-4">Follow Me</h4>
+        <div class="flex space-x-4">
+          <a href="https://github.com/Saptakcodes" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/saptak-chaki-31a83228b/" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://x.com/ChakiSapta68840" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/saptak_chaki?utm_source=qr&igsh=MXh6NmlqeHJmMnNuZQ==" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact Form -->
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg animate__animated animate__fadeInRight">
+      <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+      
+      <!-- 📞 Contact Form -->
+<form id="contact-form" class="space-y-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="name" class="block mb-2 font-medium">Your Name</label>
+      <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700">
+    </div>
+    <div>
+      <label for="email" class="block mb-2 font-medium">Your Email</label>
+      <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700">
+    </div>
+  </div>
+
+  <div>
+    <label for="title" class="block mb-2 font-medium">Subject</label>
+    <input type="text" id="title" name="title" required class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700">
+  </div>
+
+  <div>
+    <label for="message" class="block mb-2 font-medium">Message</label>
+    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"></textarea>
+  </div>
+
+  <button type="submit" class="px-6 py-3 bg-accent text-white rounded-lg w-full">
+    Send Message
+  </button>
+</form>
+    </div>
+  </div>
+</section>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("dYKan-1wxeEgYd_ua");
+
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent page reload
+
+      emailjs.sendForm("service_4x6wm0u", "template_5xyjcc6", form)
+        .then(function () {
+          alert("✅ Message sent successfully!");
+          form.reset();
+        }, function (error) {
+          alert("❌ Failed to send message.");
+          console.error("EmailJS error:", error);
+        });
+    });
+  });
+</script>
+
+
+<!-- 🚀 Call to Action -->
+<section class="mt-32 bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-16 px-6 sm:px-24 rounded-xl mx-6 sm:mx-24 text-center animate__animated animate__fadeIn">
+  <h2 class="text-3xl font-bold mb-6">Ready to Start a Project?</h2>
+  <p class="text-xl mb-8 max-w-3xl mx-auto">I'm available for freelance work and full-time positions. Let's discuss how I can help bring your ideas to life.</p>
+  <a href="#contact" class="px-8 py-3 bg-white text-accent rounded-lg font-bold hover:bg-gray-100 transition inline-block glow">Get In Touch</a>
+</section>
+
+<!-- 🦶 Footer -->
+<footer class="mt-32 bg-gray-100 dark:bg-gray-800 py-12 px-6 sm:px-24">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Saptak Chaki</h3>
+        <p class="text-gray-600 dark:text-gray-300">Creating digital experiences that matter.</p>
+      </div>
+      
+      <div>
+        <h4 class="font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#header" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">Home</a></li>
+          <li><a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">About</a></li>
+          <li><a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">Projects</a></li>
+          <li><a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-bold mb-4">Services</h4>
+        <ul class="space-y-2">
+          <li><a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">Web Development</a></li>
+          <li><a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">Data Analysis</a></li>
+          <li><a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">Machine Learning</a></li>
+          <li><a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-accent transition">Consulting</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-bold mb-4">Connect</h4>
+        <div class="flex space-x-4">
+          <a href="https://github.com/Saptakcodes" target="_blank" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition shadow">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/saptak-chaki-31a83228b/" target="_blank" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition shadow">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://x.com/ChakiSapta68840" target="_blank" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition shadow">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/saptak_chaki?utm_source=qr&igsh=MXh6NmlqeHJmMnNuZQ==" target="_blank" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-white hover:bg-accent hover:text-white transition shadow">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-200 dark:border-gray-700 mt-12 pt-8 text-center text-gray-600 dark:text-gray-300">
+      <p>&copy; 2025 Saptak Chaki. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Typed.js 2nd Script -->
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+  new Typed('#line1', {
+    strings: ['<i>Hey, Great to see you</i>, Welcome.', 'I am Saptak Chaki'],
+    typeSpeed: 50,
+    backSpeed: 25,
+    backDelay: 1000,
+    showCursor: false,
+    onComplete: function () {
+      new Typed('#typed-role', {
+        strings: ['Frontend Web Developer', 'Data Analyst', 'Machine Learning Engineer'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 1500,
+        loop: true
+      });
+    }
+  });
+</script>
+
+<!-- 🌗 Toggle Mode Script -->
+<script>
+  function toggleMode() {
+    document.documentElement.classList.toggle('dark');
+    
+    // Save preference to localStorage
+    if (document.documentElement.classList.contains('dark')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  }
+  
+  // Check for saved preference
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.documentElement.classList.add('dark');
+  }
+</script>
+
+<!-- Mobile Menu Toggle -->
+<script>
+  const toggleBtn = document.getElementById('mobile-toggle');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    openIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+</script>
+
+<!-- Scroll Reveal Animation -->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+  ScrollReveal().reveal('.skill-card', { 
+    interval: 200,
+    origin: 'bottom',
+    distance: '20px',
+    easing: 'cubic-bezier(0.5, 0, 0, 1)',
+    duration: 800
+  });
+  
+  ScrollReveal().reveal('.project-card', { 
+    interval: 200,
+    origin: 'bottom',
+    distance: '20px',
+    easing: 'cubic-bezier(0.5, 0, 0, 1)',
+    duration: 800,
+    delay: 200
+  });
+</script>
+
+<!--Pagination-->
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block">
+  <div class="flex items-center space-x-4">
+    <!-- Home -->
+    <a href="#header" class="pagination-dot group relative w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-500 transition-colors duration-300">
+      <span class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200">Home</span>
+    </a>
+    
+    <!-- About Me -->
+    <a href="#about" class="pagination-dot group relative w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-500 transition-colors duration-300">
+      <span class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200">About Me</span>
+    </a>
+    
+    <!-- Skills -->
+    <a href="#skills" class="pagination-dot group relative w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-500 transition-colors duration-300">
+      <span class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200">Skills</span>
+    </a>
+
+      <!-- Projects -->
+    <a href="#projects" class="pagination-dot group relative w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-500 transition-colors duration-300">
+      <span class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200">Projects</span>
+    </a>
+    <!-- Certifications -->
+    <a href="#certifications" class="pagination-dot group relative w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-500 transition-colors duration-300">
+      <span class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200">Certifications</span>
+    </a>
+    
+    <!-- Contact -->
+    <a href="#contact" class="pagination-dot group relative w-4 h-4 rounded-full bg-gray-300 hover:bg-blue-500 transition-colors duration-300">
+      <span class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200">Contact</span>
+    </a>
+  </div>
+</div>
+
+<!-- Keep the same JavaScript as before -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all pagination dots
+  const dots = document.querySelectorAll('.pagination-dot');
+  
+  // Function to update active dot
+  function updateActiveDot() {
+    const scrollPosition = window.scrollY + 100;
+    
+    document.querySelectorAll('section').forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        dots.forEach(dot => {
+          dot.classList.remove('bg-blue-500', 'w-5', 'h-5');
+          if (dot.getAttribute('href') === `#${sectionId}`) {
+            dot.classList.add('bg-blue-500', 'w-5', 'h-5');
+          }
+        });
+      }
+    });
+  }
+  
+  // Initial update
+  updateActiveDot();
+  
+  // Update on scroll
+  window.addEventListener('scroll', updateActiveDot);
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
+
