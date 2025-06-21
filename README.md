@@ -9,7 +9,7 @@ Welcome to my **personal developer portfolio website**, built to showcase my pro
 
 ## 🚀 Live Preview
 
-🌍 [Click here to visit the live site](#)  
+🌍 https://portfolio-saptak.vercel.app/(#)
 (You can deploy this on GitHub Pages, Vercel, or Netlify)
 
 ---
